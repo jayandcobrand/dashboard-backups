@@ -1,0 +1,6 @@
+backups/
+logs/
+checksums/
+*.swp
+.DS_Store
+Documents/
