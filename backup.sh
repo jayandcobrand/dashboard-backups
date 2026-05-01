@@ -34,9 +34,11 @@ for file in "$SOURCE_DIR"/*.json; do
 
 done
 
-find "$BACKUP_DIR" -maxdepth 1 -type d -mtime +3 | while read old_dir; do
-    rm -rf "$old_dir"
-    log "Deleted old backup: $old_dir"
+while [ $(ls -d "$BACKUP_DIR"/*/ 2>/dev/null | wc -l) -gt 3 ]; do
+    oldest=$(ls -d "$BACKUP_DIR"/*/ 2>/dev/null | sort | head -1)
+    rm -rf "$oldest"
+
+    log "Deleted old backup: $oldest"
 done
 
 log "Backup Finished"
