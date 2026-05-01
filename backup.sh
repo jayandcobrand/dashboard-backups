@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -u
 
 SOURCE_DIR="$HOME/Documents/DashboardExports"
 BACKUP_DIR="$HOME/dashboard-backups/backups"
